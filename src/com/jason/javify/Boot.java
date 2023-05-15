@@ -11,23 +11,27 @@ import java.io.File;
 public class Boot {
 
     public JFrame frame;
+    public CircleButton playButton;
 
     public static void main(String[] args){
         new Boot();
     }
     public Boot(){
+
+        playButton = new CircleButton(100, 100, 25);
+        
         frame = new MyFrame(){
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
-                g.drawOval(50, 50, 50, 50);
+                playButton.update();
             }
         };
 
         frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(isClickingThePlayButton(e)){
+                if(playButton.isClicked(e)){
                     System.out.println("Working");
                     new MP3Player(new File("src/com/jason/javify/music/vine-boom.mp3")).play();
                 }
@@ -61,12 +65,5 @@ public class Boot {
 
     }
 
-    public boolean isClickingThePlayButton(MouseEvent e){
-        double xDif = 50+25 - e.getX();
-        double yDif = 50+25 - e.getY();
-        double distanceSquared = xDif * xDif + yDif * yDif;
-        boolean collision = distanceSquared < (25 + 1) * (25 + 1);
-        return collision;
-    }
 
 }
