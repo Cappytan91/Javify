@@ -1,5 +1,8 @@
 package com.jason.javify;
 
+import java.awt.*;
+import java.awt.event.MouseEvent;
+
 public class CircleButton {
 
     public int x, y;
@@ -12,7 +15,7 @@ public class CircleButton {
 
     }
 
-    public update(Graphics g){
+    public void update(Graphics g){
         g.drawOval(x, y, radius*2, radius*2);
     }
 

@@ -7,24 +7,30 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.util.ArrayList;
+
+import static com.jason.javify.helpers.Loaders.loadSongs;
 
 public class Boot {
 
     public JFrame frame;
     public CircleButton playButton;
+    public ArrayList<Song> songs;
+    public int index;
 
     public static void main(String[] args){
         new Boot();
     }
     public Boot(){
+        this.songs = loadSongs();
+        this.index = 0;
+        playButton = new CircleButton(512 / 2 - 50, 700, 50);
 
-        playButton = new CircleButton(100, 100, 25);
-        
         frame = new MyFrame(){
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
-                playButton.update();
+                playButton.update(g);
             }
         };
 
@@ -33,7 +39,7 @@ public class Boot {
             public void mouseClicked(MouseEvent e) {
                 if(playButton.isClicked(e)){
                     System.out.println("Working");
-                    new MP3Player(new File("src/com/jason/javify/music/vine-boom.mp3")).play();
+                    songs.get(index).getSong().play();
                 }
             }
 
