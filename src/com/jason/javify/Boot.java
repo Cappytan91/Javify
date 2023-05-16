@@ -37,9 +37,13 @@ public class Boot {
         frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(playButton.isClicked(e)){
+                if(playButton.isClicked(e) && !playButton.isPlaying()){
                     System.out.println("Working");
-                    songs.get(index).getSong().play();
+                    songs.get(2).getSong().play();
+                    playButton.setPlaying(true);
+                }else{
+                    songs.get(2).getSong().pause();
+                    playButton.setPlaying(false);
                 }
             }
 
