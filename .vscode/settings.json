@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "libs/jaco-mp3-player-0.9.3.jar"
+    ]
+}
