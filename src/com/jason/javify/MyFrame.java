@@ -1,11 +1,12 @@
 package com.jason.javify;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
 
 public class MyFrame extends JFrame {
 
     public int width, height;
+    public JPanel panel;
 
     public MyFrame() {
         super("Javify");
