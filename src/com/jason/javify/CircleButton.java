@@ -21,9 +21,12 @@ public class CircleButton {
         g.drawOval(x, y, radius*2, radius*2);
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(3));
-        g2.drawLine(x+30, y+25, x+30, y + radius*2 - 25 );
-        g2.drawLine(x + radius*2 - 30, y+25, x + radius*2 - 30, y + radius*2 - 25 );
-        g.drawPolygon(new int[] {x + 30, x + radius*2 - 20, x + 30}, new int[] {y + 25, y + radius, y + radius*2 - 25}, 3);
+        if(playing){
+            g2.drawLine(x+30, y+25, x+30, y + radius*2 - 25 );
+            g2.drawLine(x + radius*2 - 30, y+25, x + radius*2 - 30, y + radius*2 - 25 );
+        }else{
+            g.drawPolygon(new int[] {x + 30, x + radius*2 - 20, x + 30}, new int[] {y + 25, y + radius, y + radius*2 - 25}, 3);
+        }
     }
 
     public boolean isClicked(MouseEvent e){
