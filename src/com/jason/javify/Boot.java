@@ -45,10 +45,11 @@ public class Boot {
             public void mouseClicked(MouseEvent e) {
                 if(playButton.isClicked(e) && !playButton.isPlaying()){
                     System.out.println("Working");
-                    songs.get(index).getSong().play();
+                    songs.get(2).getSong().play();
                     playButton.setPlaying(true);
                 }else{
-                    songs.get(index).getSong().pause();
+                    songs.get(2).getSong().pause();
+                    System.out.println("Paused");
                     playButton.setPlaying(false);
                 }
             }
