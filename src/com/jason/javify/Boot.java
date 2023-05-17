@@ -28,16 +28,18 @@ public class Boot {
     public Boot(){
         this.songs = loadSongs();
         this.index = 0;
+        frame = new MyFrame();
         this.panel = new JPanel(){
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
                 playButton.update(g);
+                g.drawImage(songs.get(0).getCover(), 100, 300, 512 - 200, frame.getWidth() - 200, null);
             }
         };
         playButton = new CircleButton(512 / 2 - 50, 700, 50);
 
-        frame = new MyFrame();
+
         frame.add(panel);
 
         frame.addMouseListener(new MouseListener() {
@@ -45,10 +47,10 @@ public class Boot {
             public void mouseClicked(MouseEvent e) {
                 if(playButton.isClicked(e) && !playButton.isPlaying()){
                     System.out.println("Working");
-                    songs.get(2).getSong().play();
+                    songs.get(0).getSong().play();
                     playButton.setPlaying(true);
                 }else{
-                    songs.get(2).getSong().pause();
+                    songs.get(0).getSong().pause();
                     System.out.println("Paused");
                     playButton.setPlaying(false);
                 }
@@ -100,19 +102,3 @@ public class Boot {
 
 }
 
-/*
-You can use the following code to turn a JAudioTagger artwork to a Java Image object:
-
-import org.jaudiotagger.tag.images.Artwork;
-
-// Get the artwork from JAudioTagger
-Artwork artwork = ...
-
-// Convert the artwork to an image
-byte[] imageData = artwork.getBinaryData();
-InputStream inputStream = new ByteArrayInputStream(imageData);
-BufferedImage image = ImageIO.read(inputStream);
-
-// Use the Java Image object as needed
-In this code, we first get the Artwork object from JAudioTagger. We then get the binary data of the artwork and create an InputStream from it. Finally, we use the ImageIO class to read the InputStream and create a BufferedImage object, which can be used as a Java Image object.
- */

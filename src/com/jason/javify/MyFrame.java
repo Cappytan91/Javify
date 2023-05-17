@@ -10,7 +10,7 @@ public class MyFrame extends JFrame {
 
     public MyFrame() {
         super("Javify");
-        setSize(512,960);
+        setSize(512 + 10,960);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
