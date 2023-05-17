@@ -99,3 +99,20 @@ public class Boot {
 
 
 }
+
+/*
+You can use the following code to turn a JAudioTagger artwork to a Java Image object:
+
+import org.jaudiotagger.tag.images.Artwork;
+
+// Get the artwork from JAudioTagger
+Artwork artwork = ...
+
+// Convert the artwork to an image
+byte[] imageData = artwork.getBinaryData();
+InputStream inputStream = new ByteArrayInputStream(imageData);
+BufferedImage image = ImageIO.read(inputStream);
+
+// Use the Java Image object as needed
+In this code, we first get the Artwork object from JAudioTagger. We then get the binary data of the artwork and create an InputStream from it. Finally, we use the ImageIO class to read the InputStream and create a BufferedImage object, which can be used as a Java Image object.
+ */
