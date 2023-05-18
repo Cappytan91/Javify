@@ -24,7 +24,7 @@ public class Boot {
     }
     public Boot(){
         this.songs = loadSongs();
-        this.index = 0;
+        this.index = 1;
         frame = new MyFrame();
         this.panel = new JPanel(){
             @Override
