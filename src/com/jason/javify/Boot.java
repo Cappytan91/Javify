@@ -4,10 +4,7 @@ import jaco.mp3.player.MP3Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.Timer;
@@ -34,7 +31,7 @@ public class Boot {
             public void paint(Graphics g) {
                 super.paint(g);
                 playButton.update(g);
-                g.drawImage(songs.get(0).getCover(), 100, 300, 512 - 200, frame.getWidth() - 200, null);
+                g.drawImage(songs.get(index).getCover(), 100, 300, 512 - 200, 512 - 200, null);
             }
         };
         playButton = new CircleButton(512 / 2 - 50, 700, 50);
@@ -47,10 +44,10 @@ public class Boot {
             public void mouseClicked(MouseEvent e) {
                 if(playButton.isClicked(e) && !playButton.isPlaying()){
                     System.out.println("Working");
-                    songs.get(0).getSong().play();
+                    songs.get(index).getSong().play();
                     playButton.setPlaying(true);
                 }else{
-                    songs.get(0).getSong().pause();
+                    songs.get(index).getSong().pause();
                     System.out.println("Paused");
                     playButton.setPlaying(false);
                 }
@@ -74,6 +71,36 @@ public class Boot {
             @Override
             public void mouseExited(MouseEvent e) {
 
+            }
+        });
+
+        frame.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_LEFT && index != 0){
+
+                    songs.get(index).getSong().stop();
+                    index--;
+                    if(playButton.isPlaying())
+                        songs.get(index).getSong().play();
+                }
+                if(e.getKeyCode() == KeyEvent.VK_RIGHT && index != songs.size() - 1){
+
+                    songs.get(index).getSong().stop();
+                    index++;
+                    if(playButton.isPlaying())
+                        songs.get(index).getSong().play();
+                }
             }
         });
 

@@ -41,8 +41,8 @@ public class Loaders {
             // Convert the artwork to an image
             byte[] imageData = artwork.getBinaryData();
             InputStream inputStream = new ByteArrayInputStream(imageData);
-            BufferedImage image = ImageIO.read(inputStream);
-            return image;
+
+            return ImageIO.read(inputStream);
 
             // Use the Java Image object as needed
         }catch (Exception e){
