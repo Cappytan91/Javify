@@ -2,9 +2,17 @@
   <library name="libs">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/libs" />
+      <root url="file://$PROJECT_DIR$/libs/JLayer1.0.1" />
+      <root url="file://$PROJECT_DIR$/libs/JLayer1.0.1" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/libs/JLayer1.0.1/doc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libs/JLayer1.0.1/src" />
+      <root url="file://$PROJECT_DIR$/libs/JLayer1.0.1/srctest" />
+    </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/libs/JLayer1.0.1" recursive="false" />
   </library>
 </component>

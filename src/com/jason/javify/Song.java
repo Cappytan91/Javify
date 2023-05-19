@@ -9,11 +9,13 @@ public class Song {
 
     private Image cover;
     private String name;
+    private double length;
     private MP3Player song;
 
     public Song(Image cover, String name, double length){
         this.cover = cover;
         this.name = name;
+        this.length = length;
 
         this.song = new MP3Player(new File("src/com/jason/javify/music/" + name));
 
@@ -29,5 +31,9 @@ public class Song {
 
     public String getName() {
         return name;
+    }
+
+    public double getLength() {
+        return length;
     }
 }

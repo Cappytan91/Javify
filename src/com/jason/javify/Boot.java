@@ -9,6 +9,8 @@ import java.awt.event.*;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.Timer;
+import javazoom.jl.player.Player;
+import javazoom.jl.player.advanced.AdvancedPlayer;
 
 import static com.jason.javify.helpers.Loaders.loadSongs;
 
@@ -108,6 +110,7 @@ public class Boot {
         System.out.println(new File("src/com/jason/javify/music/").list().length);
         MP3Player m = new MP3Player(new File("src/com/jason/javify/music/vine-boom.mp3"));
         m.play();
+
         //m.setRepeat(true);
         Timer timer = new Timer(40, taskPerformer);
         timer.start();
