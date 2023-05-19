@@ -23,7 +23,7 @@ public class Loaders {
         for (int i = 0; i < new File("src/com/jason/javify/music/").list().length; i++) {
             try {
                 //Image mp3 = new MP3File(new File("src/com/jason/javify/music/" + new File("src/com/jason/javify/music/").listFiles()[i].getName()));
-                tempList.add(new Song(/*(BufferedImage) mp3.getTag().getFirstArtwork()*/ getIMG(i), new File("src/com/jason/javify/music/").listFiles()[i].getName()));
+                tempList.add(new Song(/*(BufferedImage) mp3.getTag().getFirstArtwork()*/ getIMG(i), new File("src/com/jason/javify/music/").listFiles()[i].getName(), getDuration(i)));
                 System.out.println(tempList.get(i).getName());
             }catch (Exception e){
                 System.out.println("you suck, you need to fix this:\n" + e);
@@ -50,6 +50,21 @@ public class Loaders {
         }
         System.out.println("didnt work");
         return null;
+    }
+
+    public static double getDuration(int i){
+        double duration = 0;
+
+        try {
+            AudioFile audioFile = AudioFileIO.read(new File("src/com/jason/javify/music/" + new File("src/com/jason/javify/music/").listFiles()[i].getName()));
+            duration = audioFile.getAudioHeader().getPreciseTrackLength();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+        return duration;
     }
 
 }

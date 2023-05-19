@@ -11,7 +11,7 @@ public class Song {
     private String name;
     private MP3Player song;
 
-    public Song(Image cover, String name){
+    public Song(Image cover, String name, double length){
         this.cover = cover;
         this.name = name;
 

@@ -1,6 +1,7 @@
 package com.jason.javify;
 
 import jaco.mp3.player.MP3Player;
+import jaco.mp3.player.c;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,7 +47,7 @@ public class Boot {
                     System.out.println("Working");
                     songs.get(index).getSong().play();
                     playButton.setPlaying(true);
-                }else{
+                }else if(playButton.isClicked(e)){
                     songs.get(index).getSong().pause();
                     System.out.println("Paused");
                     playButton.setPlaying(false);

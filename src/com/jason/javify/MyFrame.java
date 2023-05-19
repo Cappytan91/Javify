@@ -17,8 +17,4 @@ public class MyFrame extends JFrame {
         this.width = getWidth();
         this.height = getHeight();
     }
-
-    public static void main(String[] args) {
-        new MyFrame();
-    }
 }

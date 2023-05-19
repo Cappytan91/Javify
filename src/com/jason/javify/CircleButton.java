@@ -17,7 +17,7 @@ public class CircleButton {
         this.radius = radius;
         this.playing = false;
 
-        buttons = new Image[]{Toolkit.getDefaultToolkit().getImage("src/com/jason/javify/imgs/playbutton-01.png"), Toolkit.getDefaultToolkit().getImage("src/com/jason/javify/imgs/playbutton-01.png")};
+        buttons = new Image[]{Toolkit.getDefaultToolkit().getImage("src/com/jason/javify/imgs/playbutton-01.png"), Toolkit.getDefaultToolkit().getImage("src/com/jason/javify/imgs/playbuttonPaused.png")};
 
     }
 
@@ -30,7 +30,8 @@ public class CircleButton {
         //    g2.drawLine(x+30, y+25, x+30, y + radius*2 - 25 );
         //    g2.drawLine(x + radius*2 - 30, y+25, x + radius*2 - 30, y + radius*2 - 25 );
         }else{
-        //    g.drawPolygon(new int[] {x + 30, x + radius*2 - 20, x + 30}, new int[] {y + 25, y + radius, y + radius*2 - 25}, 3);
+            g.drawImage(buttons[1], x, y, radius*2, radius*2, null);
+            //    g.drawPolygon(new int[] {x + 30, x + radius*2 - 20, x + 30}, new int[] {y + 25, y + radius, y + radius*2 - 25}, 3);
         }
 
 
